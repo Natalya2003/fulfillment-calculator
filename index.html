@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Калькулятор фулфилмента</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="calc-container">
+    <h3>Калькулятор фулфилмента</h3>
+    <div class="calc-grid">
+      <label>Страна
+        <select id="country">
+          <option value="Россия">Россия</option>
+          <option value="Казахстан">Казахстан</option>
+          <option value="Беларусь">Беларусь</option>
+          <option value="Китай">Китай</option>
+          <option value="Турция">Турция</option>
+        </select>
+      </label>
+      <label>Город
+        <input type="text" id="city" value="Москва" />
+      </label>
+      <label>Модель
+        <select id="model">
+          <option value="FBO">FBO</option>
+          <option value="FBS">FBS</option>
+        </select>
+      </label>
+      <label>Вес одной единицы (кг)
+        <input type="number" id="weight" step="0.01" />
+      </label>
+      <label>Самая длинная сторона (см)
+        <input type="number" id="length" />
+      </label>
+      <label>Количество единиц
+        <input type="number" id="quantity" />
+      </label>
+      <label>Количество дней хранения (необязательно)
+        <input type="number" id="storageDays" />
+      </label>
+      <label>Объявленная стоимость (необязательно)
+        <input type="number" id="declaredValue" />
+      </label>
+      <label style="grid-column: 1 / -1; display: flex; align-items: center;">
+        <input type="checkbox" id="express" style="margin-right: 8px;" /> Экспресс-сборка
+      </label>
+    </div>
+    <div class="calc-actions">
+      <button onclick="runCalculation()">Рассчитать</button>
+      <button onclick="downloadPDF()">Скачать PDF</button>
+      <button onclick="downloadExcel()">Скачать Excel</button>
+    </div>
+    <div id="result"></div>
+    <p class="small">Цены указаны без НДС. Это примерный расчет и не является публичной офертой.</p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
